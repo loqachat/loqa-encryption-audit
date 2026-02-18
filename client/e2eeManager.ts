@@ -672,7 +672,13 @@ export async function decryptGroupDm(
       await saveRatchetSession(senderId, senderDeviceId, session);
     } else {
       // Legacy: "ciphertext:nonce" wrapped with static ECDH
-      const senderPubKeyB64 = message.sender_key_id;
+      // sender_key_id may be the actual public key (old format) or a label like "ratchet-group"
+      let senderPubKeyB64 = message.sender_key_id;
+
+      // If sender_key_id is not a valid base64 public key, fetch it
+      if (!senderPubKeyB64 || senderPubKeyB64.length < 40) {
+        senderPubKeyB64 = await getRecipientPublicKey(token, message.author) ?? undefined;
+      }
       if (!senderPubKeyB64) {
         return "🔒 [Missing sender key]";
       }

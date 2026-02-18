@@ -30,7 +30,7 @@ This repository contains the **8 self-contained files** that implement 100% of L
 |------|-------|---------|
 | [`crypto.ts`](client/crypto.ts) | 138 | X25519/P-256 ECDH key exchange + AES-256-GCM encrypt/decrypt primitives |
 | [`doubleRatchet.ts`](client/doubleRatchet.ts) | 615 | Full X3DH key agreement + Double Ratchet protocol (forward secrecy + post-compromise security) |
-| [`e2eeManager.ts`](client/e2eeManager.ts) | 922 | Orchestration — DM, Group DM, and MLS file encryption flows |
+| [`e2eeManager.ts`](client/e2eeManager.ts) | 927 | Orchestration — DM, Group DM, and MLS file encryption flows |
 | [`fileCrypto.ts`](client/fileCrypto.ts) | 145 | Per-file AES-256-GCM encryption with key wrapping/unwrapping |
 | [`keystore.ts`](client/keystore.ts) | 289 | IndexedDB private key storage (proves keys never leave device) |
 | [`mlsManager.ts`](client/mlsManager.ts) | 333 | OpenMLS WASM wrapper — group management, encrypt, decrypt |
@@ -42,7 +42,7 @@ This repository contains the **8 self-contained files** that implement 100% of L
 |------|-------|---------|
 | [`crypto.rs`](server/crypto.rs) | 208 | AES-256-GCM email encryption, HMAC-SHA256 blind indexes, Argon2id hashing, per-file encryption |
 
-**Total auditable surface: 2,764 lines**
+**Total auditable surface: 2,762 lines**
 
 ---
 
